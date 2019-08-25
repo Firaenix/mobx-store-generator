@@ -1,0 +1,18 @@
+{
+    "defaultSeverity": "error",
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "jsRules": {},
+    "rules": {
+      "class-name": true,
+      "curly": true,
+      "whitespace": true,
+      "typedef": true,
+      "ordered-imports": false,
+      "object-literal-sort-keys": false,
+      "interface-name": false,
+      "no-empty-interface": false,
+      "member-ordering": false
+    },
+    "rulesDirectory": []
+  }
+  
