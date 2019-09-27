@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [tag]
+on: [push]
 
 jobs:
   build:
@@ -23,6 +23,10 @@ jobs:
           npm publish
         env:
           CI: true
+      - name: Tag
+        uses: actions/bin/filter@master
+        with:
+          args: tag
       - name: Publish
         uses: actions/npm@master
         env:
