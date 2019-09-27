@@ -1,6 +1,11 @@
-name: Node CI
+name: Build and Deploy
 
-on: [push]
+on:
+  push:
+    branches:    
+      - master 
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -16,7 +21,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install, build, deploy
+      - name: yarn install, build
         run: |
           yarn
           yarn build
@@ -24,10 +29,12 @@ jobs:
           CI: true
       - name: Tag
         uses: actions/bin/filter@master
+        if: github.event_name == 'tag'
         with:
           args: tag
       - name: Publish
         uses: actions/npm@master
+        if: github.event_name == 'tag'
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
