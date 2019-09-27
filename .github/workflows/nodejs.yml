@@ -20,7 +20,6 @@ jobs:
         run: |
           yarn
           yarn build
-          npm publish
         env:
           CI: true
       - name: Tag
