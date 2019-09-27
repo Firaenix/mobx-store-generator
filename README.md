@@ -31,7 +31,11 @@ class Store {
 }
 const StoreImpl = new Store();
 
-HydrateStore("UserStore", StoreImpl);
+// React Native
+HydrateStore(AsyncStorage)("UserStore", StoreImpl);
+
+// Web
+HydrateStore(localStorage)("UserStore", StoreImpl);
 
 export const UserStore = GenerateStore(StoreImpl);
 ```
@@ -39,9 +43,35 @@ export const UserStore = GenerateStore(StoreImpl);
 ### 2. Use your store in a Functional Component using hooks
 
 ```typescript
+import { UserStore, UserStoreProps } from "./UserStore";
+
+type HomePageProps = UserStoreProps;
+
+export const HomePage = (props: HomePageProps) => {
+  const userStore = UserStore.useStore();
+
+  return <div>{userStore.username}</div>;
+};
 ```
 
 ### 3. Use your store in a Class Component using Injection
 
 ```typescript
+import { UserStore, UserStoreProps } from "./UserStore";
+
+type HomePageProps = UserStoreProps;
+
+@UserStore.inject
+export class HomePage extends React.Component<HomePageProps> {
+  public render() {
+    return <div>{this.props.username}</div>;
+  }
+}
 ```
+
+## Thanks
+
+- Mobx
+- Mobx-React
+- React
+- https://github.com/pinqy520/mobx-persist
