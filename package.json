@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/Firaenix/mobx-store-generator#readme",
   "dependencies": {
-    "@types/react": "^16.9.2",
     "mobx": "^5.13.0",
-    "mobx-react": "^6.1.3",
-    "react": "^16.9.0",
-    "typescript": "^3.5.3"
+    "mobx-react": "^6.0.0",
+    "react": "^16.9.0"
   },
   "devDependencies": {
+    "@types/react": "^16.9.2",
+    "typescript": "^3.5.3",
     "tslint-config-prettier": "^1.18.0"
   }
 }
