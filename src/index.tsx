@@ -2,6 +2,8 @@ import { create } from "mobx-persist";
 import { useObserver } from "mobx-react";
 import React, { ReactNode } from "react";
 
+export { persist } from "mobx-persist";
+
 /**
  * Sets up the auto hydration of the store when the app starts.
  * In React Native, saves to AsyncStorage

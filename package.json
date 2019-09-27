@@ -2,9 +2,15 @@
   "name": "mobx-store-generator",
   "version": "1.0.0",
   "description": "Generates React Hooks and React Context for Mobx Stores",
-  "main": "index.js",
+  "files": [
+    "src/",
+    "lib/",
+    "package.json"
+  ],
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -18,12 +24,17 @@
   "homepage": "https://github.com/Firaenix/mobx-store-generator#readme",
   "dependencies": {
     "mobx": "^5.13.0",
-    "mobx-react": "^6.0.0",
-    "react": "^16.9.0"
+    "mobx-persist": "^0.4.1",
+    "mobx-react": "^6.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.2",
-    "typescript": "^3.5.3",
-    "tslint-config-prettier": "^1.18.0"
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
   }
 }
