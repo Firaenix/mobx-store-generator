@@ -5,6 +5,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "noUnusedLocals": true,
     "lib": ["es2015", "esnext", "dom"],

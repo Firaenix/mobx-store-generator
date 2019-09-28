@@ -2,10 +2,8 @@ name: Build and Deploy
 
 on:
   push:
-    branches:    
-      - master 
-    tags:
-      - '*'
+    branches:
+      - master
 
 jobs:
   build:
@@ -27,14 +25,8 @@ jobs:
           yarn build
         env:
           CI: true
-      - name: Tag
-        uses: actions/bin/filter@master
-        if: contains(github.ref, 'tag')
-        with:
-          args: tag
       - name: Publish
         uses: actions/npm@master
-        if: contains(github.ref, 'tag')
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
