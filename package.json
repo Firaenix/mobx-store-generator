@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates React Hooks and React Context for Mobx Stores",
   "files": [
     "src/",
@@ -25,9 +25,7 @@
   "dependencies": {
     "mobx": "^5.13.0",
     "mobx-persist": "^0.4.1",
-    "mobx-react": "^6.0.0"
-  },
-  "peerDependencies": {
+    "mobx-react": "^6.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
