@@ -34,7 +34,11 @@ export const GenerateStore = <T extends object>(newStore: T) => {
     useStore: useStore(StoreContext),
     Provider: StoreProvider,
     Consumer: StoreContext.Consumer,
-    Context: StoreContext
+    Context: StoreContext,
+    /**
+     * This should only be referenced from within another mobx store to allow cross store interactions
+     */
+    rawStore: newStore
   };
 };
 
