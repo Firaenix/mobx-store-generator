@@ -70,6 +70,15 @@ export class HomePage extends React.Component<HomePageProps> {
 }
 ```
 
+### 4. Add your Provider to the Root of your application
+Note: You only need to do this for a single store, if you have multiple, you dont need to do it again.
+
+```typescript
+<UserStore.Provider>
+  <App />
+</UserStore.Provider>
+```
+
 ## Thanks
 
 - Mobx
