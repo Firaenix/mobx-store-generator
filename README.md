@@ -43,15 +43,16 @@ export const UserStore = GenerateStore(StoreImpl);
 ### 2. Use your store in a Functional Component using hooks
 
 ```typescript
+import { observer } from 'mobx-react';
 import { UserStore, UserStoreProps } from "./UserStore";
 
 type HomePageProps = UserStoreProps;
 
-export const HomePage = (props: HomePageProps) => {
+export const HomePage = observer((props: HomePageProps) => {
   const userStore = UserStore.useStore();
 
   return <div>{userStore.username}</div>;
-};
+});
 ```
 
 ### 3. Use your store in a Class Component using Injection
