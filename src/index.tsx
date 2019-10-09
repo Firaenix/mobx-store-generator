@@ -43,7 +43,9 @@ export const GenerateStore = <T extends object>(newStore: T) => {
 };
 
 const injectStore = <K extends object>(MobxStore: React.Context<K>) =>
-  function inject<T extends K, S>(baseComponent: React.ComponentClass<T, S>) {
+  function inject<T extends Partial<K>, S>(
+    baseComponent: React.ComponentClass<T, S>
+  ) {
     const component = (ownProps: T) => {
       const store = React.useContext(MobxStore);
 
