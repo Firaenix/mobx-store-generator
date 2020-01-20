@@ -12,22 +12,15 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install, build
-        run: |
-          yarn
-          yarn build
+          registry-url: https://registry.npmjs.org/
+      - run: yarn install
+      - run: yarn build
+      - run: npm publish --access public      
         env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           CI: true
-      - name: Publish
-        uses: actions/npm@master
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        with:
-          args: publish
