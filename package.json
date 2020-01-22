@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-generator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generates React Hooks and React Context for Mobx Stores",
   "files": [
     "src/",
