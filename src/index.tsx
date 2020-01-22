@@ -44,12 +44,12 @@ export const GenerateStore = <T extends object>(newStore: T) => {
 
 type GetProps<Comp> = Comp extends React.ComponentType<infer P> ? P : never;
 type InjectedComponent<Props, C extends React.ComponentType<Props>, StoreProps> =  React.ComponentType<Pick<GetProps<C>, Exclude<keyof GetProps<C>, keyof StoreProps>>>;
-        
+
 const injectStore = <K extends object>(MobxStore: React.Context<K>) =>
-  function inject<T extends Partial<K>>(
+  function inject<Props extends K>(
     baseComponent: React.ComponentType<Props>
   ) {
-    const component = (ownProps: T) => {
+    const component = (ownProps: Props) => {
       const store = React.useContext(MobxStore);
 
       if (store === {}) {
